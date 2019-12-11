@@ -62,7 +62,7 @@
           <a class="nav-link" href="https://langit.hanifmu.com/">Beranda <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://udan.hanifmu.com/">Gempa Bumi</a>
+          <a class="nav-link" href="https://lindu.hanifmu.com/">Gempa Bumi</a>
         </li>
       </ul>
     </div>
@@ -80,6 +80,7 @@
               </div>
             </div>
             <div class="card-body">
+              <img id="loading" class="img-fluid" src="https://rawcdn.githack.com/hanifmu/langit/74287be048b498b9a6916ab6f8a86bbaa138c432/assets/Ellipsis-1s-200px.gif" />
               <img id="citra" class="img-fluid" src="" style="width: 100%; height: auto;" />
             </div>
             <div class="card-footer">
@@ -99,6 +100,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script>
     $(document).ready(function() {
+      $("#citra").hide();
       jQuery.ajax({
         type: 'GET',
         url: 'https://hnf-cors.herokuapp.com/?https://juanda.jatim.bmkg.go.id/radar/data/radar.json',
@@ -106,6 +108,8 @@
         success: function(response) {
           $("#citra").attr("src", "https://juanda.jatim.bmkg.go.id" + response.img.substr(2));
           $("#tanggal").replaceWith(response.text);
+          $("#loading").hide();
+          $("#citra").show();
         },
         error: function() {}
       });
