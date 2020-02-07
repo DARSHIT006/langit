@@ -103,7 +103,7 @@
       $("#citra").hide();
       jQuery.ajax({
         type: 'GET',
-        url: 'https://hnf-cors.herokuapp.com/?https://juanda.jatim.bmkg.go.id/radar/data/radar.json',
+        url: 'https://hnf-cors.herokuapp.com/?https://juanda.jatim.bmkg.go.id/radar/data/radarjud.json',
         dataType: 'json',
         success: function(response) {
           $("#citra").attr("src", "https://juanda.jatim.bmkg.go.id" + response.img.substr(2));
